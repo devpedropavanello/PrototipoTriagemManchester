@@ -1,10 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h4>Qual é o seu principal problema agora?</h4>
+        <p class="text-muted">Toque a opção que representa melhor sua queixa.</p>
+        <form method="post">
+            <div class="d-flex flex-wrap">
+                {% for key, info in sintomas_info.items() %}
+                    <div class="me-2 mb-2">
+                        <button name="sintoma" value="{{ key }}" class="btn btn-outline-primary btn-sintoma" type="submit">
+                            {{ info.titulo }}
+                        </button>
+                    </div>
+                {% endfor %}
+            </div>
+            <hr>
+            <div>
+                <label class="form-label">Se nenhum se encaixa, escolha "outros" e detalhe:</label>
+                <div class="input-group">
+                    <input class="form-control" name="outros_texto" placeholder="escreva brevemente...">
+                    <button class="btn btn-secondary" type="submit" name="sintoma" value="outros">Outros</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

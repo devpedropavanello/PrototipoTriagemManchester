@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "base.html" %}
+{%block content %}
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h4 class="card-title">Identificação do Paciente</h4>
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label">Nome completo</label>
+                <input class="form-control" name="nome" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Data de nascimento / idade</label>
+                <input class="form-control" name="data_nascimento" placeholder="Ex: 1985-06-20 ou 40 anos">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Sexo</label>
+                <select class="form-select" name="sexo">
+                    <option value="">-- Selecione --</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
+                    <option value="O">Outro</option>
+                </select>
+            </div>
+            <div class="~form-check mb-3">
+                <input class="form-check-input" type="checkbox" name="gestante" value="sim" id="acomp">
+                <label class="form-check-label" for="acomp">Estou ajudando outra pessoa</label>
+            </div>
+            <button class="btn btn-primary">Continuar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
