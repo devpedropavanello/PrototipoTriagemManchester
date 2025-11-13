@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card shadow-sm">
+	<div class="card-body">
+		<h4>Relatório de triagens (sessão)</h4>
+		<p class="text-muted">
+			Mostrando triagens realizadas desde que o sistema foi iniciado.
+		</p>
+
+		{% if triagens %}
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Horário</th>
+						<th>Paciente</th>
+						<th>Sintoma</th>
+						<th>Classificação</th>
+						<th>Detalhes</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for t in triagens %}
+					<tr>
+						<td>{{ t.timestamp }}</td>
+						<td>{{ t.paciente_nome }}</td>
+						<td>
+							{% if t.sintoma_titulo %}
+								{{ t.sintoma_titulo }}
+							{% elif t.paciente and t.paciente.sintomas %}
+								{{ t.paciente.sintomas | join(', ') }}
+							{% else %}
+								(sem informação)
+							{% endif %}
+						</td>
+						<td>
+							{% if t.cor == 'vermelho' %}
+								<span class="badge bg-danger">🔴 Emergência</span>
+							{% elif t.cor == 'laranja' %}
+								<span class="badge bg-warning text-dark">🟠 Muito urgente</span>
+							{% elif t.cor == 'amarelo' %}
+								<span class="badge bg-warning">🟡 Urgente</span>
+							{% elif t.cor == 'verde' %}
+								<span class="badge bg-success">🟢 Pouco urgente</span>
+							{% else %}
+								<span class="badge bg-secondary">⚪ Desconhecido</span>
+							{% endif %}
+						</td>
+						<td>
+							<button class="btn btn-sm btn-outline-primary"
+									type="button"
+									data-bs-toggle="collapse"
+									data-bs-target="#det-{{ t.id }}">
+								Ver
+							</button>
+							<div class="collapse mt-2" id="det-{{ t.id }}">
+								<div class="card card-body">
+									<strong>Respostas:</strong>
+									<ul class="mb-0">
+										{% if t.respostas %}
+											{% if t.respostas.items is defined %}
+												{% for pergunta_id, resposta in t.respostas.items() %}
+													<li>{{ pergunta_id | upper }}: <strong>{{ resposta }}</strong></li>
+												{% endfor %}
+											{% else %}
+												{% for r in t.respostas %}
+													<li>{{ r.pergunta }}: <strong>{{ r.resposta }}</strong></li>
+												{% endfor %}
+											{% endif %}
+										{% else %}
+											<li>(sem respostas)</li>
+										{% endif %}
+									</ul>
+									<small class="text-muted">Código: {{ t.id }}</small>
+								</div>
+							</div>
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		{% else %}
+		<div class="alert alert-info">
+			Nenhuma triagem registrada ainda.
+		</div>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}
+

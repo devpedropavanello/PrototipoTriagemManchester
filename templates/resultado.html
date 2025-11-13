@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card shadow-sm">
+	<div class="card-body">
+		<h3>Resultado da triagem</h3>
+		<p class="fs-5">Paciente: <strong>{{ triagem.paciente_nome }}</strong></p>
+		<p>Hora: {{ triagem.timestamp }}</p>
+
+		<div class="mt-3">
+			{% if triagem.cor == 'vermelho' %}
+				<span class="badge bg-danger badge-level">🔴 Emergência</span>
+			{% elif triagem.cor == 'laranja' %}
+				<span class="badge bg-warning text-dark badge-level">🟠 Muito urgente</span>
+			{% elif triagem.cor == 'amarelo' %}
+				<span class="badge bg-warning badge-level">🟡 Urgente</span>
+			{% elif triagem.cor == 'verde' %}
+				<span class="badge bg-success badge-level">🟢 Pouco urgente</span>
+			{% else %}
+				<span class="badge bg-secondary badge-level">⚪ Desconhecido</span>
+			{% endif %}
+		</div>
+
+		<div class="mt-3">
+			<p><strong>Observação:</strong> {{ triagem.texto }}</p>
+		</div>
+
+		<div class="mt-4">
+			<button class="btn btn-outline-secondary" onclick="window.print()">Imprimir comprovante</button>
+			<a href="{{ url_for('index') }}" class="btn btn-primary">Nova triagem</a>
+			<a href="{{ url_for('relatorio') }}" class="btn btn-link">Ir para Relatório</a>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
