@@ -4,10 +4,10 @@ Protótipo web desenvolvido como projeto de TCC para simular uma triagem baseada
 
 ---
 
-##⚠️ Projeto educacional e experimental.
+## ⚠️ Projeto educacional e experimental.
 Não substitui avaliação médica e não deve ser utilizado para decisões clínicas reais.
 
-##✨ Funcionalidades
+## ✨ Funcionalidades
 
 Identificação do paciente (nome, data de nascimento e sexo)
 
@@ -19,7 +19,7 @@ Classificação por cor com mensagem explicativa
 
 Relatório das triagens realizadas (armazenadas em memória)
 
-##🧰 Tecnologias
+## 🧰 Tecnologias
 
 Python
 
@@ -29,28 +29,7 @@ HTML + Bootstrap
 
 ---
 
-##📁 Estrutura do Projeto
-.
-├── run.py
-├── requirements.txt
-├── app/
-│   ├── __init__.py
-│   ├── routes.py
-│   ├── models.py
-│   └── services/
-│       └── triagem_service.py
-└── templates/
-    ├── base.html
-    ├── index.html
-    ├── identificacao.html
-    ├── sintoma.html
-    ├── perguntas.html
-    ├── resultado.html
-    └── relatorio.html
-
-Observação: por se tratar de um protótipo acadêmico, os dados são armazenados apenas em memória.
-
-##✅ Pré-requisitos
+## ✅ Pré-requisitos
 
 Python 3.10+
 
@@ -58,7 +37,7 @@ pip
 
 ---
 
-##👤 Autor
+## 👤 Autor
 
 Pedro Pavanello
 Engenharia de Software — Univassouras
