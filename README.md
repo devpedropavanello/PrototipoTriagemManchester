@@ -1,11 +1,13 @@
-Protótipo de Triagem — Protocolo de Manchester (Flask)
+## Sistema de Triagem — Protocolo de Manchester (Flask)
 
 Protótipo web desenvolvido como projeto de TCC para simular uma triagem baseada no Protocolo de Manchester, coletando dados do paciente, sintomas e respostas a perguntas para retornar uma classificação de risco (vermelho, laranja, amarelo ou verde).
 
-⚠️ Projeto educacional e experimental.
+---
+
+##⚠️ Projeto educacional e experimental.
 Não substitui avaliação médica e não deve ser utilizado para decisões clínicas reais.
 
-✨ Funcionalidades
+##✨ Funcionalidades
 
 Identificação do paciente (nome, data de nascimento e sexo)
 
@@ -17,7 +19,7 @@ Classificação por cor com mensagem explicativa
 
 Relatório das triagens realizadas (armazenadas em memória)
 
-🧰 Tecnologias
+##🧰 Tecnologias
 
 Python
 
@@ -25,7 +27,9 @@ Flask (Jinja2)
 
 HTML + Bootstrap
 
-📁 Estrutura do Projeto
+---
+
+##📁 Estrutura do Projeto
 .
 ├── run.py
 ├── requirements.txt
@@ -46,15 +50,15 @@ HTML + Bootstrap
 
 Observação: por se tratar de um protótipo acadêmico, os dados são armazenados apenas em memória.
 
-✅ Pré-requisitos
+##✅ Pré-requisitos
 
 Python 3.10+
 
 pip
 
+---
 
-
-👤 Autor
+##👤 Autor
 
 Pedro Pavanello
 Engenharia de Software — Univassouras
