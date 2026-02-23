@@ -27,8 +27,6 @@ Flask (Jinja2)
 
 HTML + Bootstrap
 
----
-
 ## ✅ Pré-requisitos
 
 Python 3.10+
@@ -40,4 +38,5 @@ pip
 ## 👤 Autor
 
 Pedro Pavanello
+
 Engenharia de Software — Univassouras
