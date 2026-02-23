@@ -21,11 +21,15 @@ Relatório das triagens realizadas (armazenadas em memória)
 
 ## 🧰 Tecnologias
 
-Python
+. Python
 
-Flask (Jinja2)
+. Flask
 
-HTML + Bootstrap
+. Jinja2
+
+. HTML
+
+. Bootstrap
 
 ## ✅ Pré-requisitos
 
